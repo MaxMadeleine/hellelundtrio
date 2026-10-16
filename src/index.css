@@ -66,6 +66,16 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /*
+   * Cormorant Garamond defaults to oldstyle figures, which turn "112" into
+   * something closer to "ii2". Every number on the page is a fact worth reading,
+   * so the display face is forced to lining figures.
+   */
+  .font-display {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'lnum' 1, 'onum' 0;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 3px;

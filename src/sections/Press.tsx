@@ -11,14 +11,20 @@ export function Press() {
       title="Billeder til omtale"
       lead="Klik på et billede for at hente det i høj opløsning. Angiv fotograf hvor det er nævnt."
     >
+      {/* Five photos in a three-column grid leaves a hole, so the first one is
+          given double width and the rows fill out evenly. */}
       <ul className="mt-14 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-        {pressPhotos.map((photo) => (
-          <li key={photo.file}>
+        {pressPhotos.map((photo, i) => (
+          <li key={photo.file} className={i === 0 ? 'lg:col-span-2' : undefined}>
             <a href={photo.file} download className="group block">
               <Picture
                 name={photo.image}
                 alt={photo.alt}
-                sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw"
+                sizes={
+                  i === 0
+                    ? '(min-width: 1024px) 46rem, (min-width: 640px) 45vw, 100vw'
+                    : '(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw'
+                }
                 className="aspect-4/3 w-full object-cover transition duration-500 group-hover:opacity-85"
               />
               <span className="mt-3 flex items-center justify-between gap-4 text-sm">

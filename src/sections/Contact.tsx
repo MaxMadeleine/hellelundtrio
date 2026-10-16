@@ -5,13 +5,22 @@ import { contact, site } from '../content/site'
 export function Contact() {
   return (
     <section id="kontakt" aria-labelledby="kontakt-title" className="relative isolate bg-ink">
+      {/*
+        The source is a near-black frame whose only light falls on the hands and
+        keys, which sit high in the shot — hence the crop towards the top. Text
+        sits in the left column, which the gradient keeps almost solid.
+      */}
       <Picture
         name="klaver-bagfra"
         alt=""
         sizes="100vw"
-        className="absolute inset-0 size-full object-cover object-center opacity-40"
+        className="absolute inset-0 size-full object-cover object-[50%_14%]"
       />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-ink via-ink/75 to-ink" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/40 lg:to-ink/10"
+      />
+      <div aria-hidden="true" className="absolute inset-y-0 left-0 w-1/3 bg-ink/40" />
 
       <div className="relative mx-auto max-w-6xl px-6 py-24 sm:px-8 md:py-32">
         <p className="eyebrow text-gold-bright">Kontakt</p>

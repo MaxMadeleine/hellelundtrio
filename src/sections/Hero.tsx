@@ -31,10 +31,16 @@ export function Hero() {
             Helle Nystrup&nbsp;Lund
           </h1>
 
-          <ul className="reveal mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-paper/75 [animation-delay:160ms]">
+          {/* Stacked on phones, inline from `sm` up — wrapping the inline row
+              left a separator orphaned at the start of the second line. */}
+          <ul className="reveal mt-7 flex flex-col gap-2 text-paper/75 sm:flex-row sm:items-center [animation-delay:160ms]">
             {roles.map((role, i) => (
-              <li key={role} className="flex items-center gap-4 text-base sm:text-lg">
-                {i > 0 && <span aria-hidden="true" className="text-gold">·</span>}
+              <li key={role} className="text-base sm:text-lg">
+                {i > 0 && (
+                  <span aria-hidden="true" className="mx-4 hidden text-gold sm:inline">
+                    ·
+                  </span>
+                )}
                 {role}
               </li>
             ))}

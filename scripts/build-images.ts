@@ -17,7 +17,10 @@ type Derivative = {
   name: string
   source: string
   widths: number[]
-  /** Square crops for record sleeves, otherwise the source aspect ratio is kept. */
+  /**
+   * Record sleeves are padded to a square on black rather than cropped — a
+   * centre crop cut the lettering off the artwork.
+   */
   square?: boolean
 }
 
@@ -90,12 +93,13 @@ async function emitDerivative(d: Derivative) {
     const resized = sharp(d.source, { failOn: 'none' }).resize({
       width,
       height: d.square ? width : undefined,
-      fit: d.square ? 'cover' : 'inside',
+      fit: d.square ? 'contain' : 'inside',
+      background: { r: 13, g: 13, b: 15 },
       withoutEnlargement: true,
     })
 
     await Promise.all([
-      resized.clone().avif({ quality: 62, effort: 6 }).toFile(`${OUT}/${d.name}-${width}.avif`),
+      resized.clone().avif({ quality: 62, effort: 4 }).toFile(`${OUT}/${d.name}-${width}.avif`),
       resized.clone().webp({ quality: 78 }).toFile(`${OUT}/${d.name}-${width}.webp`),
       resized
         .clone()

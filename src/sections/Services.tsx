@@ -39,12 +39,15 @@ export function Services() {
 
               <p className="mt-5 leading-relaxed text-paper/70">{service.summary}</p>
 
-              <ul className="mt-7 flex flex-wrap gap-x-3 gap-y-2">
+              {/* A pill per line looked accidental, so these read as a list with
+                  gold rules instead. */}
+              <ul className="mt-7 grid gap-y-2 sm:grid-cols-2 sm:gap-x-8">
                 {service.offerings.map((offering) => (
                   <li
                     key={offering}
-                    className="border border-paper/15 px-3 py-1.5 text-sm text-paper/75"
+                    className="flex gap-3 border-t border-paper/10 pt-2 text-sm text-paper/70"
                   >
+                    <span aria-hidden="true" className="mt-2 size-1 shrink-0 bg-gold" />
                     {offering}
                   </li>
                 ))}
