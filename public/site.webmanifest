@@ -1,0 +1,14 @@
+{
+  "name": "Helle Nystrup Lund",
+  "short_name": "Helle N. Lund",
+  "description": "Musikterapeut, ph.d. · Jazzpianist · Foredragsholder",
+  "lang": "da-DK",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0d0d0f",
+  "theme_color": "#0d0d0f",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

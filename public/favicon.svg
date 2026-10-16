@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Helle Nystrup Lund">
+  <rect width="64" height="64" fill="#0d0d0f" />
+  <!-- Five keyline bars read as both piano keys and a stave. -->
+  <g fill="#d0940d">
+    <rect x="12" y="16" width="4" height="32" />
+    <rect x="21" y="16" width="4" height="32" />
+    <rect x="30" y="16" width="4" height="32" />
+    <rect x="39" y="16" width="4" height="32" />
+    <rect x="48" y="16" width="4" height="32" />
+  </g>
+  <rect x="12" y="29" width="40" height="6" fill="#0d0d0f" />
+</svg>
