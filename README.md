@@ -117,9 +117,6 @@ Aalborg Universitetshospital, KUNSTEN and the rest.
 Nothing on the page is invented — where material was missing the section was left out rather than
 filled with placeholder copy. These are the known gaps:
 
-- [ ] **Booking email.** The site currently uses `hnl@rn.dk`, her hospital address, as requested.
-      Worth revisiting: routing commercial bookings through a regional hospital mailbox is awkward,
-      and `Helle@themusicstar.dk` is already public on the therapist register.
 - [ ] **Danske Årstidssange cover.** The real sleeve 404'd on the old server. The site currently
       shows the trio's own "feat. Hans Ulrik" artwork from the press assets. Needs the actual cover
       from Helle or Gateway Music. See `src/content/trio.ts`.

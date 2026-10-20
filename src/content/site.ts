@@ -19,8 +19,8 @@ export const contact = {
   phone: '+45 41 57 01 25',
   phoneDisplay: '41 57 01 25',
   phoneHref: 'tel:+4541570125',
-  email: 'hnl@rn.dk',
-  emailHref: 'mailto:hnl@rn.dk',
+  email: 'helle@themusicstar.dk',
+  emailHref: 'mailto:helle@themusicstar.dk',
   facebook: 'https://www.facebook.com/helle.nystruplund',
 } as const
 
