@@ -1,4 +1,4 @@
-import { contact, navigation, site } from '../content/site'
+import { contact, credits, navigation, site } from '../content/site'
 
 export function Footer() {
   return (
@@ -32,11 +32,23 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-paper/10 pt-6 text-xs text-paper/35 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-2 border-t border-paper/10 pt-6 text-sm text-paper/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
-          <p>Pressefotos: Per Feder, NG21</p>
+          <p>
+            {credits.photos}
+            {' · '}
+            {credits.maker.prefix}:{' '}
+            <a
+              href={credits.maker.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-paper/75 transition-colors hover:text-gold-bright"
+            >
+              {credits.maker.name}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

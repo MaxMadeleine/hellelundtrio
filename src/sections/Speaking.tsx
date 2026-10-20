@@ -19,6 +19,7 @@ export function Speaking() {
           size="feature"
           autoplay
           start={30}
+          captions="off"
         />
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
           <div>

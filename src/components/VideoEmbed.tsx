@@ -10,9 +10,14 @@ type Props = {
   autoplay?: boolean
   /** Start position in seconds. */
   start?: number
+  /** Captions stay in the player menu, but do not start on. */
+  captions?: 'auto' | 'off'
 }
 
-function playerSrc(id: string, options: { autoplay: boolean; muted: boolean; start: number }) {
+function playerSrc(
+  id: string,
+  options: { autoplay: boolean; muted: boolean; start: number; captions: 'auto' | 'off' },
+) {
   const params = new URLSearchParams({
     rel: '0',
     modestbranding: '1',
@@ -22,6 +27,13 @@ function playerSrc(id: string, options: { autoplay: boolean; muted: boolean; sta
   if (options.muted) {
     params.set('mute', '1')
     params.set('enablejsapi', '1')
+  }
+  if (options.captions === 'off') {
+    // 0 = do not force captions on. YouTube still auto-enables them on muted
+    // autoplay, so the player API turns the track off after load.
+    params.set('cc_load_policy', '0')
+    params.set('enablejsapi', '1')
+    params.set('origin', window.location.origin)
   }
   if (options.start > 0) params.set('start', String(options.start))
   return `https://www.youtube-nocookie.com/embed/${id}?${params.toString()}`
@@ -44,6 +56,7 @@ export function VideoEmbed({
   size = 'grid',
   autoplay = false,
   start = 0,
+  captions = 'auto',
 }: Props) {
   const [src, setSrc] = useState<string | null>(null)
   const [muted, setMuted] = useState(false)
@@ -56,7 +69,7 @@ export function VideoEmbed({
 
   const play = (withMute: boolean) => {
     setMuted(withMute)
-    setSrc(playerSrc(id, { autoplay: true, muted: withMute, start }))
+    setSrc(playerSrc(id, { autoplay: true, muted: withMute, start, captions }))
   }
 
   useEffect(() => {
@@ -70,7 +83,7 @@ export function VideoEmbed({
       ([entry]) => {
         if (entry?.isIntersecting) {
           setMuted(true)
-          setSrc(playerSrc(id, { autoplay: true, muted: true, start }))
+          setSrc(playerSrc(id, { autoplay: true, muted: true, start, captions }))
           observer.disconnect()
         }
       },
@@ -78,7 +91,45 @@ export function VideoEmbed({
     )
     observer.observe(node)
     return () => observer.disconnect()
-  }, [autoplay, src, id, start])
+  }, [autoplay, src, id, start, captions])
+
+  useEffect(() => {
+    if (captions !== 'off' || !src) return
+    const iframe = iframeRef.current
+    if (!iframe) return
+
+    let cancelled = false
+    const timers: number[] = []
+    const disable = () => {
+      if (cancelled) return
+      // Empty track turns captions off without unloading the module, so the
+      // viewer can still switch them on from the player.
+      command(iframe, 'setOption', ['captions', 'track', {}])
+    }
+
+    const onMessage = (event: MessageEvent) => {
+      if (typeof event.data !== 'string') return
+      if (event.data.includes('onReady') || event.data.includes('onStateChange')) {
+        disable()
+      }
+    }
+    window.addEventListener('message', onMessage)
+
+    const onLoad = () => {
+      iframe.contentWindow?.postMessage(JSON.stringify({ event: 'listening' }), '*')
+      for (const ms of [250, 800, 1800]) {
+        timers.push(window.setTimeout(disable, ms))
+      }
+    }
+    iframe.addEventListener('load', onLoad)
+
+    return () => {
+      cancelled = true
+      window.removeEventListener('message', onMessage)
+      iframe.removeEventListener('load', onLoad)
+      timers.forEach((timer) => window.clearTimeout(timer))
+    }
+  }, [captions, src])
 
   const unmute = () => {
     command(iframeRef.current, 'unMute')

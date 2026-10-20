@@ -24,6 +24,15 @@ export const contact = {
   facebook: 'https://www.facebook.com/helle.nystruplund',
 } as const
 
+export const credits = {
+  photos: 'Pressefotos: Per Feder, NG21',
+  maker: {
+    prefix: 'Hjemmeside',
+    name: 'Maxmadeweb',
+    href: 'https://maxmadeweb.com',
+  },
+} as const
+
 export const navigation = [
   { href: '#om', label: 'Om mig' },
   { href: '#ydelser', label: 'Book mig' },
