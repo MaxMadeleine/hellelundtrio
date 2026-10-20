@@ -6,13 +6,13 @@ const roles = ['Musikterapeut, ph.d.', 'Jazzpianist', 'Foredragsholder']
 
 export function Hero() {
   return (
-    <section id="top" className="relative isolate min-h-[100svh] overflow-hidden bg-ink">
+    <section id="top" data-theme="gold" className="relative isolate min-h-[100svh] overflow-hidden bg-ink">
       <Picture
         name="helle-klaver"
         alt="Helle Nystrup Lund ved flyglet"
         sizes="100vw"
         priority
-        className="absolute inset-0 size-full object-cover object-[72%_center] opacity-70 sm:object-[65%_center] lg:object-center"
+        className="absolute inset-0 size-full object-cover object-[72%_32%] opacity-70 sm:object-[65%_30%] lg:object-[50%_28%]"
       />
       {/* Two gradients: one for text legibility on the left, one to seat the fold. */}
       <div

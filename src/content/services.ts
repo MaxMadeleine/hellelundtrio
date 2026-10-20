@@ -1,9 +1,9 @@
 import type { ImageName } from '../images.generated'
 
 /**
- * The four things Helle can be booked for. These are the page's primary
- * conversion paths, so each one answers the same three questions: what it is,
- * what you get, and who it is for.
+ * The four things that can be booked. These are the page's primary conversion
+ * paths, so each one answers the same three questions: what it is, what you
+ * get, and who it is for. Clinical music therapy is not offered as a service.
  */
 export type Service = {
   id: string
@@ -21,11 +21,11 @@ export type Service = {
 
 export const services: readonly Service[] = [
   {
-    id: 'musikterapi',
+    id: 'foredrag',
     eyebrow: '01',
-    title: 'Musikterapi & musikmedicin',
+    title: 'Foredrag & kurser',
     summary:
-      'Foredrag, kurser og rådgivning om musik som non-farmakologisk redskab — til søvn, uro, angst og stress. Bygget på egen klinisk praksis i psykiatrien og på egen forskning.',
+      'Jeg holder foredrag, kurser og oplæg om musik som non-farmakologisk redskab — til søvn, uro, angst og stress. Bygget på egen forskning og klinisk praksis i psykiatrien.',
     offerings: [
       'Foredrag for personale, ledelse og fagpersoner',
       'Kurser og undervisning i brug af musikmedicin',
@@ -77,7 +77,7 @@ export const services: readonly Service[] = [
     eyebrow: '04',
     title: 'The MusicStar',
     summary:
-      'Appen til musikmedicin, som Helle er medopfinder af. Kuraterede spillelister udviklet af musikterapeuter og forskere til søvnstøtte, uro, angst og tankemylder.',
+      'Appen til musikmedicin, som jeg er medopfinder af. Kuraterede spillelister udviklet af musikterapeuter og forskere til søvnstøtte, uro, angst og tankemylder.',
     offerings: [
       'Introduktion og oplæg om musikmedicin',
       'Implementering på afdelinger og i kommuner',

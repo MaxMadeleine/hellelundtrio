@@ -3,7 +3,13 @@ import { musicstar } from '../content/musicstar'
 
 export function MusicStar() {
   return (
-    <Section id="musicstar" eyebrow="Appen" title={musicstar.heading} lead={musicstar.tagline}>
+    <Section
+      id="musicstar"
+      theme="star"
+      eyebrow="Appen"
+      title={musicstar.heading}
+      lead={musicstar.tagline}
+    >
       <div className="mt-14 grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
         <div className="space-y-6">
           {musicstar.body.map((paragraph, i) => (
@@ -43,7 +49,7 @@ export function MusicStar() {
             ))}
           </ul>
           <p className="mt-8 text-sm leading-relaxed text-ink/55">
-            Appen drives af MusicStar ApS og har sit eget site. Her på siden kan du booke Helle til
+            Appen drives af MusicStar ApS og har sit eget site. Her på siden kan du booke mig til
             oplæg, implementering og undervisning i brugen af den.
           </p>
         </div>

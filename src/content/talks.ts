@@ -8,7 +8,7 @@ export const tedTalk = {
   event: 'TEDxAalborg',
   year: '2023',
   description:
-    'Helles TEDx-talk om at bruge musik til at falde i søvn og til at reducere stress — fortalt gennem en patienthistorie fra psykiatrien og gennem resultaterne fra hendes eget forskningsprojekt.',
+    'Min TEDx-talk om at bruge musik til at falde i søvn og til at reducere stress — fortalt gennem en patienthistorie fra psykiatrien og gennem resultaterne fra mit eget forskningsprojekt.',
 } as const
 
 /**
@@ -18,7 +18,7 @@ export const tedTalk = {
 export const research = {
   heading: 'Forskningen bag',
   intro:
-    'Helles ph.d.-afhandling undersøgte, om musiklytning kan forbedre søvnkvaliteten hos mennesker med depressionsrelateret søvnbesvær. Studiet blev gennemført i Psykiatrien, Aalborg Universitetshospital.',
+    'Min ph.d.-afhandling undersøgte, om musiklytning kan forbedre søvnkvaliteten hos mennesker med depressionsrelateret søvnbesvær. Studiet blev gennemført i Psykiatrien, Aalborg Universitetshospital.',
   figures: [
     { value: '112', label: 'patienter indgik i det randomiserede studie' },
     { value: '4 uger', label: 'med musiklytning gav bedre søvn- og livskvalitet' },

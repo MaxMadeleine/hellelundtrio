@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { contact, navigation, site } from '../content/site'
 
-export function Header() {
+type Props = {
+  currentSection?: string
+}
+
+export function Header({ currentSection }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -35,18 +39,24 @@ export function Header() {
         </a>
 
         <nav aria-label="Hovedmenu" className="hidden items-center gap-7 lg:flex">
-          {navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-paper/70 transition-colors hover:text-gold-bright"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navigation.map((item) => {
+            const active = currentSection !== undefined && item.href === `#${currentSection}`
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={active ? 'true' : undefined}
+                className={`text-sm transition-colors hover:text-gold-bright ${
+                  active ? 'text-gold-bright' : 'text-paper/70'
+                }`}
+              >
+                {item.label}
+              </a>
+            )
+          })}
           <a
             href={contact.phoneHref}
-            className="bg-gold px-5 py-2.5 text-sm font-medium tracking-wide text-ink uppercase transition-colors hover:bg-gold-bright"
+            className="bg-gold px-5 py-2.5 text-sm font-medium tracking-wide text-gold-on uppercase transition-colors hover:bg-gold-bright"
           >
             {contact.phoneDisplay}
           </a>
@@ -73,21 +83,27 @@ export function Header() {
       >
         <nav aria-label="Mobilmenu" className="mx-auto max-w-6xl px-6 py-6 sm:px-8">
           <ul className="flex flex-col">
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-paper/10 py-4 font-display text-2xl text-paper transition-colors hover:text-gold-bright"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {navigation.map((item) => {
+              const active = currentSection !== undefined && item.href === `#${currentSection}`
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? 'true' : undefined}
+                    className={`block border-b border-paper/10 py-4 font-display text-2xl transition-colors hover:text-gold-bright ${
+                      active ? 'text-gold-bright' : 'text-paper'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
           <a
             href={contact.phoneHref}
-            className="mt-6 flex w-full items-center justify-center bg-gold px-6 py-4 text-sm font-medium tracking-wide text-ink uppercase"
+            className="mt-6 flex w-full items-center justify-center bg-gold px-6 py-4 text-sm font-medium tracking-wide text-gold-on uppercase"
           >
             Ring {contact.phoneDisplay}
           </a>

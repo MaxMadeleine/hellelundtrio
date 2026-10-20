@@ -7,6 +7,7 @@ export function Press() {
   return (
     <Section
       id="presse"
+      theme="press"
       eyebrow="Presse"
       title="Billeder til omtale"
       lead="Klik på et billede for at hente det i høj opløsning. Angiv fotograf hvor det er nævnt."

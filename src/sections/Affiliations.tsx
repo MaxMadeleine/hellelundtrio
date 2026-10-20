@@ -6,7 +6,12 @@ import { affiliations, funders } from '../content/about'
  */
 export function Affiliations() {
   return (
-    <section aria-labelledby="samarbejde-title" className="border-y border-ink/10 bg-paper-dim">
+    <section
+      id="samarbejde"
+      data-theme="olive"
+      aria-labelledby="samarbejde-title"
+      className="border-y border-ink/10 bg-paper-dim"
+    >
       <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8">
         <h2 id="samarbejde-title" className="eyebrow text-gold-dim">
           Samarbejder og ansættelser

@@ -9,7 +9,7 @@ export const site = {
   name: 'Helle Nystrup Lund',
   role: 'Musikterapeut, ph.d. · Jazzpianist · Foredragsholder',
   shortDescription:
-    'Musikterapeut og ph.d. fra Aalborg. Foredrag og kurser om musik, søvn og sundhed, koncerter med Helle Lund Trio samt rytmeworkshops.',
+    'Jeg er musikterapeut og ph.d. fra Aalborg. Book foredrag og kurser om musik, søvn og sundhed, koncert med Helle Lund Trio eller rytmeworkshop.',
   locality: 'Aalborg',
   region: 'Nordjylland',
   country: 'Danmark',
@@ -25,8 +25,8 @@ export const contact = {
 } as const
 
 export const navigation = [
-  { href: '#om', label: 'Om Helle' },
-  { href: '#ydelser', label: 'Book Helle' },
+  { href: '#om', label: 'Om mig' },
+  { href: '#ydelser', label: 'Book mig' },
   { href: '#foredrag', label: 'Foredrag' },
   { href: '#trio', label: 'Trioen' },
   { href: '#musicstar', label: 'MusicStar' },

@@ -4,7 +4,12 @@ import { contact, site } from '../content/site'
 
 export function Contact() {
   return (
-    <section id="kontakt" aria-labelledby="kontakt-title" className="relative isolate bg-ink">
+    <section
+      id="kontakt"
+      data-theme="gold"
+      aria-labelledby="kontakt-title"
+      className="relative isolate bg-ink"
+    >
       {/*
         The source is a near-black frame whose only light falls on the hands and
         keys, which sit high in the shot — hence the crop towards the top. Text

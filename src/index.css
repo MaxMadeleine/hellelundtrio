@@ -27,8 +27,100 @@
 }
 
 /*
+ * Accents interpolate as you scroll between sections. Each section also sets
+ * `data-theme` on itself so its own chrome stays that colour even when a
+ * neighbouring section is driving the header.
+ */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #d0940d;
+}
+
+@property --accent-bright {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e9a92a;
+}
+
+@property --accent-dim {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #8a6208;
+}
+
+@property --accent-on {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0d0d0f;
+}
+
+:root,
+[data-theme='gold'] {
+  --accent: #d0940d;
+  --accent-bright: #e9a92a;
+  --accent-dim: #8a6208;
+  --accent-on: #0d0d0f;
+}
+
+[data-theme='olive'] {
+  --accent: #5c7a48;
+  --accent-bright: #73965c;
+  --accent-dim: #3f5432;
+  --accent-on: #f7f4ee;
+}
+
+[data-theme='ted'] {
+  --accent: #e62b1e;
+  --accent-bright: #ff4a3d;
+  --accent-dim: #b51f15;
+  --accent-on: #ffffff;
+}
+
+[data-theme='jazz'] {
+  --accent: #e07a3d;
+  --accent-bright: #f09055;
+  --accent-dim: #b55c28;
+  --accent-on: #0d0d0f;
+}
+
+[data-theme='star'] {
+  --accent: #2a8a96;
+  --accent-bright: #3aafbc;
+  --accent-dim: #1d656e;
+  --accent-on: #ffffff;
+}
+
+[data-theme='press'] {
+  --accent: #8a6d4a;
+  --accent-bright: #a8885e;
+  --accent-dim: #654e35;
+  --accent-on: #f7f4ee;
+}
+
+section[data-theme='ted'] {
+  background-color: #0a0a0a;
+  color: var(--color-paper);
+}
+
+section[data-theme='jazz'] {
+  background-color: #16110e;
+  color: var(--color-paper);
+}
+
+section[data-theme='star'] {
+  background-color: #e7f2f3;
+  color: var(--color-ink);
+}
+
+section[data-theme='press'] {
+  background-color: #f3eee6;
+  color: var(--color-ink);
+}
+
+/*
  * The palette carries over the old site's identity: near-black, warm paper
- * white, and the single gold accent (#D0940D) used for titles and rules.
+ * white, and a gold accent that other sections retint via `--accent`.
  */
 @theme {
   --color-ink: #0d0d0f;
@@ -36,9 +128,10 @@
   --color-ink-muted: #2a2a31;
   --color-paper: #f7f4ee;
   --color-paper-dim: #ebe6dc;
-  --color-gold: #d0940d;
-  --color-gold-bright: #e9a92a;
-  --color-gold-dim: #8a6208;
+  --color-gold: var(--accent);
+  --color-gold-bright: var(--accent-bright);
+  --color-gold-dim: var(--accent-dim);
+  --color-gold-on: var(--accent-on);
 
   --font-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -55,6 +148,11 @@
     /* Clears the sticky header when jumping to an anchor. */
     scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
+    transition:
+      --accent 400ms ease,
+      --accent-bright 400ms ease,
+      --accent-dim 400ms ease,
+      --accent-on 400ms ease;
   }
 
   body {
@@ -77,13 +175,13 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-ink);
+    background-color: var(--accent);
+    color: var(--accent-on);
   }
 
   @media (prefers-reduced-motion: reduce) {

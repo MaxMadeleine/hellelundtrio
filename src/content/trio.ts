@@ -67,7 +67,7 @@ export const albums: readonly Album[] = [
     title: 'Season of Change',
     subtitle: 'Helle Lund Trio',
     description:
-      'Fortrinsvis Helle Lunds egne jazzkompositioner samt enkelte jazzstandards.',
+      'Fortrinsvis mine egne jazzkompositioner samt enkelte jazzstandards.',
     image: 'cover-season-of-change',
   },
 ] as const

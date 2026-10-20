@@ -5,7 +5,8 @@ export function About() {
   return (
     <Section
       id="om"
-      eyebrow="Om Helle"
+      theme="olive"
+      eyebrow="Om mig"
       title="Musik som behandling — og som håndværk"
     >
       <div className="mt-14 grid gap-14 lg:grid-cols-[1.35fr_1fr] lg:gap-20">

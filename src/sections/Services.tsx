@@ -8,10 +8,11 @@ export function Services() {
   return (
     <Section
       id="ydelser"
+      theme="olive"
       tone="ink"
-      eyebrow="Book Helle"
+      eyebrow="Book mig"
       title="Fire ting du kan booke"
-      lead="Musikterapeut, jazzpianist og formidler i én person. Vælg det du har brug for — aftalerne laves individuelt over telefonen."
+      lead="Jeg holder foredrag, spiller koncerter og underviser. Vælg det du har brug for — aftalerne laves individuelt over telefonen."
     >
       <div className="mt-16 space-y-px bg-paper/10">
         {services.map((service) => (

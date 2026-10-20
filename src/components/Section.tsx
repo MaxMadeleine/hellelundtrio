@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import type { ThemeName } from '../content/themes'
 
 type Props = {
   id: string
@@ -8,15 +9,27 @@ type Props = {
   children: ReactNode
   /** Dark sections invert the palette and sit between the paper-coloured ones. */
   tone?: 'paper' | 'ink'
+  /** Drives the section's accent colour. The header follows the in-view section. */
+  theme?: ThemeName
   className?: string
 }
 
-export function Section({ id, eyebrow, title, lead, children, tone = 'paper', className = '' }: Props) {
+export function Section({
+  id,
+  eyebrow,
+  title,
+  lead,
+  children,
+  tone = 'paper',
+  theme,
+  className = '',
+}: Props) {
   const dark = tone === 'ink'
 
   return (
     <section
       id={id}
+      data-theme={theme}
       aria-labelledby={title ? `${id}-title` : undefined}
       className={`${dark ? 'bg-ink text-paper' : 'bg-paper text-ink'} ${className}`}
     >

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="da">
+<html lang="da" data-theme="gold">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,8 +24,9 @@
       crossorigin
     />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- Video thumbnails are the only third-party request, and only once scrolled to. -->
+    <!-- Thumbnails load first; the TEDx embed is requested once that section is in view. -->
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin />
 
     <meta property="og:type" content="profile" />
     <meta property="og:locale" content="da_DK" />

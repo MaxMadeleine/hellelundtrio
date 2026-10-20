@@ -7,10 +7,10 @@
  * `archive/` or one of those sources, it is not on the page.
  */
 export const bio = [
-  'Helle Nystrup Lund er musikterapeut og ph.d. Hun arbejder med musik som en konkret, virksom del af behandling og trivsel — i psykiatrien, i forskningen og på scenen.',
-  'Hun er uddannet musikterapeut fra Aalborg Universitet og certificeret kognitiv terapeut, og hun modtog i 2021 ph.d.-graden fra Det Sundhedsvidenskabelige Fakultet ved Aalborg Universitet med en afhandling om musik til bedre søvn hos mennesker med depression. Siden 2004 har hun været ansat i Psykiatrien, Aalborg Universitetshospital.',
-  'Helle er samtidig uddannet på Berklee College of Music i USA og arbejder som jazzpianist og komponist. Hun leder Helle Lund Trio, er pianist i Swing Time Big Band og modtog i 2010 jazzprisen „Jambazzadør“.',
-  'Hun er medopfinder af appen The MusicStar og medstifter af MusicStar ApS, som udvikler musikmedicin til både private og fagfolk.',
+  'Jeg er musikterapeut og ph.d. Jeg arbejder med musik som en konkret, virksom del af behandling og trivsel — i psykiatrien, i forskningen og på scenen.',
+  'Jeg er uddannet musikterapeut fra Aalborg Universitet og certificeret kognitiv terapeut, og i 2021 modtog jeg ph.d.-graden fra Det Sundhedsvidenskabelige Fakultet ved Aalborg Universitet med en afhandling om musik til bedre søvn hos mennesker med depression. Siden 2004 har jeg været ansat i Psykiatrien, Aalborg Universitetshospital.',
+  'Jeg er samtidig uddannet på Berklee College of Music i USA og arbejder som jazzpianist og komponist. Jeg leder Helle Lund Trio, er pianist i Swing Time Big Band og modtog i 2010 jazzprisen „Jambazzadør“.',
+  'Jeg er medopfinder af appen The MusicStar og medstifter af MusicStar ApS, som udvikler musikmedicin til både private og fagfolk.',
 ] as const
 
 export const credentials = [

@@ -8,6 +8,7 @@ export function Trio() {
   return (
     <Section
       id="trio"
+      theme="jazz"
       tone="ink"
       eyebrow="Bandet"
       title="Helle Lund Trio"

@@ -16,7 +16,7 @@ export function CallButton({ variant = 'solid', label, className = '' }: Props) 
     'group inline-flex items-center gap-3 px-7 py-4 text-sm font-medium tracking-wide uppercase transition-colors duration-200'
   const styles =
     variant === 'solid'
-      ? 'bg-gold text-ink hover:bg-gold-bright'
+      ? 'bg-gold text-gold-on hover:bg-gold-bright'
       : 'border border-paper/35 text-paper hover:border-gold hover:text-gold-bright'
 
   return (
