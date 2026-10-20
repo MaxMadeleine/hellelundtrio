@@ -121,11 +121,11 @@ export function Trio() {
 
       <div className="mt-24 border-t border-paper/15 pt-12">
         <h3 className="eyebrow text-gold-bright">Projekter</h3>
-        <ol className="mt-8 space-y-px bg-paper/10">
+        <ol className="mt-8">
           {projects.map((project) => (
             <li
               key={project.period}
-              className="grid gap-2 bg-ink py-7 md:grid-cols-[9rem_1fr] md:gap-8"
+              className="grid gap-2 py-7 md:grid-cols-[9rem_1fr] md:gap-8"
             >
               <p className="font-display text-xl text-gold/70">{project.period}</p>
               <div>
